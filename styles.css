@@ -123,3 +123,55 @@ a { color: inherit; }
 .contact-list a { color: var(--black); font-weight: 600; text-decoration-color: var(--gold); text-underline-offset: 3px; }
 .contact-foot a { color: var(--gold); text-decoration: none; }
 .contact-foot { color: #ddd; }
+
+/* ==========================================================
+   Loan system pages (apply / client / staff)
+   ========================================================== */
+.page { padding: 3rem 0 4rem; background: var(--soft); min-height: 70vh; }
+.panel { background: var(--white); border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0,0,0,.08); padding: 1.75rem; margin-bottom: 1.5rem; }
+.form select { font: inherit; padding: .75rem .9rem; border: 1px solid #ddd; border-radius: 8px; width: 100%; background: #fff; }
+.form input[type=file] { padding: .5rem; background: #fafafa; }
+.form .check { display: flex; gap: .6rem; align-items: flex-start; font-weight: 400; }
+.form .check input { width: auto; margin-top: .3rem; }
+.calc { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; }
+.calc div { background: var(--black); color: #fff; border-radius: 10px; padding: .9rem; text-align: center; }
+.calc small { display: block; color: var(--gold); text-transform: uppercase; letter-spacing: .1em; font-size: .7rem; }
+.calc strong { font-size: 1.2rem; }
+.hint { color: var(--muted); font-size: .85rem; font-weight: 400; }
+.msg { padding: .9rem 1rem; border-radius: 8px; font-size: .95rem; }
+.msg.ok { background: #e7f6e7; color: #1d5e1d; }
+.msg.err { background: #fde8e8; color: #8a1c1c; }
+.msg.info { background: #fff4cc; color: #5a4300; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.stat { background: var(--black); color: #ddd; border-radius: var(--radius); padding: 1.25rem; border-top: 4px solid var(--gold); }
+.stat small { display: block; text-transform: uppercase; letter-spacing: .12em; font-size: .72rem; color: var(--gold); }
+.stat strong { font-size: 1.5rem; color: #fff; }
+.tabs { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.tabs button { background: #fff; border: 1px solid #ddd; border-radius: 999px; padding: .5rem 1rem; cursor: pointer; font: inherit; font-weight: 600; }
+.tabs button.active { background: var(--gold); border-color: var(--gold); }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+th, td { text-align: left; padding: .6rem .5rem; border-bottom: 1px solid #eee; vertical-align: top; }
+th { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.badge { display: inline-block; padding: .15rem .6rem; border-radius: 999px; font-size: .75rem; font-weight: 700; background: #eee; }
+.badge.pending { background: #fff4cc; } .badge.approved, .badge.active { background: #e7f6e7; }
+.badge.declined, .badge.blocked, .badge.rejected { background: #fde8e8; } .badge.paid, .badge.closed { background: #e6eefc; }
+.btn-xs { padding: .3rem .75rem; font-size: .8rem; }
+.btn-dark { background: var(--black); color: #fff; }
+.btn-light { background: #fff; border-color: #ccc; color: var(--black); }
+.btn[disabled] { opacity: .45; cursor: not-allowed; }
+.progress { height: 18px; background: #eee; border-radius: 999px; overflow: hidden; }
+.progress > span { display: block; height: 100%; background: linear-gradient(90deg, var(--gold-dark), var(--gold)); }
+.code-box { font-family: monospace; font-size: 1.6rem; letter-spacing: .15em; background: var(--black); color: var(--gold); padding: .75rem 1rem; border-radius: 8px; text-align: center; }
+.actions { display: flex; gap: .4rem; flex-wrap: wrap; }
+dialog { border: 0; border-radius: var(--radius); padding: 1.5rem; max-width: 560px; width: 92%; }
+dialog::backdrop { background: rgba(0,0,0,.6); }
+.hidden { display: none !important; }
+@media (max-width: 600px) {
+  .calc { grid-template-columns: 1fr; }
+  .panel { padding: 1.1rem; }
+  table.stack thead { display: none; }
+  table.stack tr { display: block; border-bottom: 2px solid #eee; padding: .5rem 0; }
+  table.stack td { display: flex; justify-content: space-between; gap: 1rem; border: 0; padding: .25rem 0; }
+  table.stack td::before { content: attr(data-label); font-weight: 700; color: var(--muted); font-size: .8rem; }
+}

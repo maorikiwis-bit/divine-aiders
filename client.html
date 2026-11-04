@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client area | Divine Aiders Cashloan CC</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/logo-transparent.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/logo.svg" alt="Divine Aiders Cashloan CC logo" width="56" height="56">
+        <span class="brand-text">Divine Aiders<small>Cashloan CC</small></span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="client.html">Client login</a>
+        <a href="apply.html" class="btn btn-gold btn-sm">Apply now</a>
+      </nav>
+    </div>
+  </header>
+  <main class="page">
+    <div class="container narrow">
+      <p class="eyebrow">Client area</p>
+      <h2>My loan</h2>
+      <section id="auth-view" class="panel">
+        <div class="tabs"><button data-mode="login" class="active">Sign in</button><button data-mode="activate">Activate account (access code)</button></div>
+        <form id="auth-form" class="form" style="box-shadow:none;padding:0">
+          <label>Email<input type="email" name="email" required autocomplete="email"></label>
+          <label>Password<input type="password" name="password" required minlength="8" autocomplete="current-password"></label>
+          <label id="code-field" class="hidden">Access code (from Divine Aiders staff)<input name="code" placeholder="XXXXX-XXXXX" autocomplete="off"></label>
+          <p class="hint hidden" id="activate-hint">Use the same email you applied with, choose a password (min 8 characters), and enter the access code staff gave you.</p>
+          <button class="btn btn-gold" type="submit" id="auth-btn">Sign in</button>
+          <p id="auth-msg" class="msg" hidden></p>
+        </form>
+      </section>
+      <section id="client-view" class="hidden">
+        <div class="panel">
+          <div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center">
+            <h3 id="hello">Welcome</h3><button class="btn btn-light btn-xs" id="logout">Sign out</button>
+          </div>
+          <div id="loans"></div>
+        </div>
+        <div class="panel">
+          <h3>Pay online</h3>
+          <p><button class="btn btn-gold" disabled>Pay online (coming soon)</button></p>
+          <p class="msg info">Online payments are coming soon. For now, pay by bank transfer or at our office.<br><strong>Bank transfer:</strong> <span id="bank"></span></p>
+        </div>
+        <div class="panel"><h3>Payment history</h3><div class="table-wrap" id="payments"></div></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="contact-foot">Walvis Bay, Namibia · <a href="tel:+264813580891">+264 81 358 0891</a> · <a href="tel:+264813093182">+264 81 309 3182</a></p>
+      <p class="copy"><a href="staff.html" style="color:#777">Staff login</a> · &copy; Divine Aiders Cashloan CC</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="nav.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>

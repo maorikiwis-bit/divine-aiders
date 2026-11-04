@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply | Divine Aiders Cashloan CC</title>
+  <meta name="robots" content="index,follow">
+  <link rel="icon" href="assets/logo-transparent.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/logo.svg" alt="Divine Aiders Cashloan CC logo" width="56" height="56">
+        <span class="brand-text">Divine Aiders<small>Cashloan CC</small></span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="client.html">Client login</a>
+        <a href="apply.html" class="btn btn-gold btn-sm">Apply now</a>
+      </nav>
+    </div>
+  </header>
+  <main class="page">
+    <div class="container narrow">
+      <p class="eyebrow">Online application</p>
+      <h2>Apply for a cash loan</h2>
+      <form id="apply-form" class="form panel" novalidate>
+        <div class="row">
+          <label>Full name<input name="applicant_name" required maxlength="120" autocomplete="name"></label>
+          <label>ID number<input name="id_number" required minlength="5" maxlength="30"></label>
+        </div>
+        <div class="row">
+          <label>Email<input type="email" name="email" required autocomplete="email"><span class="hint">Your client login will use this email.</span></label>
+          <label>Phone / WhatsApp<input type="tel" name="phone" required minlength="6" maxlength="20" autocomplete="tel"></label>
+        </div>
+        <label>Employer<input name="employer" maxlength="120"></label>
+        <div class="row">
+          <label>Amount (N$)<input type="number" name="amount_requested" id="amount" required min="100" max="100000" step="50" value="1000"></label>
+          <label>Repayment period (months)<input type="number" name="term_months" id="months" required min="1" max="24" step="1" value="1"></label>
+        </div>
+        <div class="calc" aria-live="polite">
+          <div><small>Interest (30% flat)</small><strong id="c-int">-</strong></div>
+          <div><small>Total repayable</small><strong id="c-total">-</strong></div>
+          <div><small>Monthly payment</small><strong id="c-month">-</strong></div>
+        </div>
+        <p class="hint">Fixed 30% flat interest on the amount borrowed. Final terms are confirmed in writing before you sign.</p>
+        <h3>Documents</h3>
+        <p class="hint">PDF, JPG or PNG, max 5 MB each.</p>
+        <label>Copy of ID<input type="file" name="id_copy" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" required></label>
+        <label>Latest payslip<input type="file" name="payslip" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" required></label>
+        <label>Bank statement (month 1)<input type="file" name="bank_statement_1" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" required></label>
+        <label>Bank statement (month 2)<input type="file" name="bank_statement_2" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" required></label>
+        <label>Bank statement (month 3)<input type="file" name="bank_statement_3" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" required></label>
+        <label class="check"><input type="checkbox" name="consent" required> <span>I consent to Divine Aiders Cashloan CC collecting, storing and using my personal information and documents to assess this application and administer any loan, in line with applicable Namibian law. I confirm the information is true.</span></label>
+        <button type="submit" class="btn btn-gold" id="submit-btn">Submit application</button>
+        <p id="apply-msg" class="msg" hidden></p>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="contact-foot">Walvis Bay, Namibia · <a href="tel:+264813580891">+264 81 358 0891</a> · <a href="tel:+264813093182">+264 81 309 3182</a></p>
+      <p class="copy"><a href="staff.html" style="color:#777">Staff login</a> · &copy; Divine Aiders Cashloan CC</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="nav.js"></script>
+  <script src="apply.js"></script>
+</body>
+</html>

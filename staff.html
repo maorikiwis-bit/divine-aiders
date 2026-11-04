@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff | Divine Aiders Cashloan CC</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="assets/logo-transparent.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/logo.svg" alt="Divine Aiders Cashloan CC logo" width="56" height="56">
+        <span class="brand-text">Divine Aiders<small>Cashloan CC</small></span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="client.html">Client login</a>
+        <a href="apply.html" class="btn btn-gold btn-sm">Apply now</a>
+      </nav>
+    </div>
+  </header>
+  <main class="page">
+    <div class="container">
+      <p class="eyebrow">Staff</p>
+      <h2>Loan management</h2>
+      <section id="auth-view" class="panel" style="max-width:480px">
+        <form id="auth-form" class="form" style="box-shadow:none;padding:0">
+          <label>Email<input type="email" name="email" required autocomplete="email"></label>
+          <label>Password<input type="password" name="password" required autocomplete="current-password"></label>
+          <button class="btn btn-gold" type="submit">Sign in</button>
+          <p id="auth-msg" class="msg" hidden></p>
+        </form>
+      </section>
+      <section id="staff-view" class="hidden">
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1rem"><span id="who"></span><button class="btn btn-light btn-xs" id="logout">Sign out</button></div>
+        <div class="stats">
+          <div class="stat"><small>Money lent</small><strong id="s-lent">-</strong></div>
+          <div class="stat"><small>Outstanding</small><strong id="s-out">-</strong></div>
+          <div class="stat"><small>Collected</small><strong id="s-col">-</strong></div>
+          <div class="stat"><small>Pending applications</small><strong id="s-pend">-</strong></div>
+        </div>
+        <div class="tabs" id="tabs">
+          <button data-tab="applications" class="active">Applications</button>
+          <button data-tab="clients">Clients &amp; loans</button>
+          <button data-tab="payments">Payments</button>
+          <button data-tab="closures">Closure requests</button>
+        </div>
+        <p id="staff-msg" class="msg" hidden></p>
+        <div class="panel" data-pane="applications">
+          <label class="hint">Filter <select id="app-filter"><option value="pending">Pending</option><option value="approved">Approved</option><option value="declined">Declined</option><option value="">All</option></select></label>
+          <div class="table-wrap" id="applications"></div>
+        </div>
+        <div class="panel hidden" data-pane="clients">
+          <p><button class="btn btn-gold btn-sm" id="add-client-btn">+ Add client (walk-in)</button></p>
+          <div class="table-wrap" id="clients"></div>
+        </div>
+        <div class="panel hidden" data-pane="payments">
+          <form id="pay-form" class="form" style="box-shadow:none;padding:0">
+            <h3>Record payment</h3>
+            <div class="row">
+              <label>Loan<select name="loan_id" id="pay-loan" required></select></label>
+              <label>Amount (N$)<input type="number" name="amount" min="0.01" step="0.01" required></label>
+            </div>
+            <div class="row">
+              <label>Date<input type="date" name="paid_on" required></label>
+              <label>Method<select name="method"><option value="cash">Cash</option><option value="bank_transfer">Bank transfer</option><option value="debit_order">Debit order</option><option value="mobile">Mobile money</option><option value="other">Other</option></select></label>
+            </div>
+            <label>Reference<input name="reference" maxlength="80"></label>
+            <button class="btn btn-gold" type="submit">Record payment</button>
+          </form>
+          <h3 style="margin-top:1.5rem">Recent payments</h3>
+          <div class="table-wrap" id="payments"></div>
+        </div>
+        <div class="panel hidden" data-pane="closures"><div class="table-wrap" id="closures"></div></div>
+      </section>
+    </div>
+  </main>
+  <dialog id="dlg"><div id="dlg-body"></div><p style="margin-top:1rem"><button class="btn btn-light btn-sm" onclick="this.closest('dialog').close()">Close</button></p></dialog>
+  <dialog id="add-dlg">
+    <form id="add-form" class="form" style="box-shadow:none;padding:0">
+      <h3>Add client (walk-in)</h3>
+      <label>Full name<input name="p_name" required></label>
+      <div class="row"><label>ID number<input name="p_id_number" required minlength="5"></label><label>Phone<input name="p_phone" required minlength="6"></label></div>
+      <label>Email (client login)<input type="email" name="p_email" required></label>
+      <label>Employer<input name="p_employer"></label>
+      <div class="row"><label>Amount (N$)<input type="number" name="p_amount" min="100" max="100000" required></label><label>Months<input type="number" name="p_months" min="1" max="24" required></label></div>
+      <div class="actions"><button class="btn btn-gold btn-sm" type="submit">Create loan + access code</button><button class="btn btn-light btn-sm" type="button" onclick="this.closest('dialog').close()">Cancel</button></div>
+    </form>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="contact-foot">Walvis Bay, Namibia · <a href="tel:+264813580891">+264 81 358 0891</a> · <a href="tel:+264813093182">+264 81 309 3182</a></p>
+      <p class="copy"><a href="staff.html" style="color:#777">Staff login</a> · &copy; Divine Aiders Cashloan CC</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="nav.js"></script>
+  <script src="staff.js"></script>
+</body>
+</html>
